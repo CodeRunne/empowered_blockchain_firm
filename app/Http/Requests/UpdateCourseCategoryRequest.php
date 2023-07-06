@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateCoursesRequest extends FormRequest
+class UpdateCourseCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +22,8 @@ class UpdateCoursesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'string', 'max:255'],
-            'slug' => ['required', 'alpha-dash'],
-            'description' => ['required', 'string'],
-            'thumbnail' => ['required', 'file', 'mimes:jpg|jpeg|png', 'max:3072'],
-            'body' => ['required'],
+            'name' => ['required', 'string', 'min:6', 'max:20'],
+            'slug' => ['required', 'string', 'alpha-dash', 'min:8']
         ];
     }
 }

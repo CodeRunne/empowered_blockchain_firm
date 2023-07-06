@@ -8,28 +8,32 @@ use App\Http\Requests\StoreRoleRequest;
 use App\Http\Requests\UpdateRoleRequest;
 
 class RoleController extends Controller
-{
+{    
     /**
      * Display a listing of the resource.
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
     {
-        return RoleResource::collection(Role::paginate(10));
+        $roles = request()->has(['page', 'limit']) ?
+                    Role::latest()->get()->forPage(request('page'), request('limit')) :
+                    Role::latest()->orderBy('id')->paginate(10);
+
+         return RoleResource::collection($roles);
     }
 
     /**
      * Store a newly created resource in storage.
      * @param \App\Http\Requests\StoreRoleRequest
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\Response
      */
     public function store(StoreRoleRequest $request)
     {
-        $attributes = $request->validated();
-        $role = Role::create($attributes);
+        Role::create($request->validated());
 
-        return $role ?
-                response()->json(['response' => true]) :
-                response()->json(['response' => false]);
+        return response()->json([
+            'message' => 'Role successfully created'
+        ]);
     }
 
     /**
@@ -39,23 +43,33 @@ class RoleController extends Controller
      */
     public function show(Role $role)
     {
-        $role = $role->loadMissing('permissions');
-        return new RoleResource($role);
+        return new RoleResource($role->loadMissing('permissions'));
     }
 
     /**
      * Update the specified resource in storage.
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(UpdateRoleRequest $request, Role $role)
     {
-        //
+        
+        $role->update($request->validated());
+
+        return response()->json([
+            'message' => 'Role successfully updated'
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(Role $role)
     {
-        //
+        $role->delete();
+
+        return response()->json([
+            'message' => 'Role successfully deleted'
+        ]);
     }
 }

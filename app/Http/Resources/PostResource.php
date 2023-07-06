@@ -21,8 +21,13 @@ class PostResource extends JsonResource
             "thumbnail" => $this->thumbnail,
             "content" => $this->content,
             "is_published" => $this->is_published,
+            "published_count" => $this->where('is_published', true)->count(),
+            "not_published_count" => $this->where('is_published', false)->count(),
             "excerpt" => $this->excerpt,
-            "author" => new UserResource($this->whenLoaded('author'))
+            "author" => $this->author->fullname,
+            "role" => $this->author->roles->pluck('name')->unique() ?? null,
+            "created_at" => $this->created_at,
+            "updated_at" => $this->updated_at
         ];
     }
 }

@@ -22,4 +22,17 @@ class Post extends Model
     public function author() {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function scopeSelectLatest($query) {
+        return $query->select('id', 'is_published', 'title', 'slug', 'excerpt', 'thumbnail', 'user_id')
+                    ->with('author')->latest();
+    }
+
+    public function scopePublished($query) {
+        $query->where('is_published', true);
+    }
+
+    public function scopeUnpublished($query) {
+        $query->where('is_published', false);
+    }
 }

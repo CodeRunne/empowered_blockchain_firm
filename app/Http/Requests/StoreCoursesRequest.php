@@ -22,7 +22,11 @@ class StoreCoursesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => ['required', 'string', 'max:255'],
+            'slug' => ['required', 'alpha-dash'],
+            'description' => ['required', 'string'],
+            'thumbnail' => ['required', 'file', 'mimes:jpg|jpeg|png', 'max:3072'],
+            'body' => ['required'],
         ];
     }
 }

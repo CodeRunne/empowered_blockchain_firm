@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('hire_a_teams', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->string('title');
-            $table->string('slug');
-            $table->text('thumbnail');
-            $table->text('content');
-            $table->string('excerpt');
-            $table->boolean('is_published')->default(false);
+            $table->string('name');
+            $table->string('email');
+            $table->string('job_role');
+            $table->string('budget');
+            $table->text('description');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('hire_a_teams');
     }
 };

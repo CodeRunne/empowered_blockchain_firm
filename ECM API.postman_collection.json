@@ -1,0 +1,829 @@
+{
+	"info": {
+		"_postman_id": "fe1c0d62-87dd-4da6-85ca-978fe25178e3",
+		"name": "ECM API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Index Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/posts",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Show Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/posts/{post}",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						"{post}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Search Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/posts/search/{post}",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						"search",
+						"{post}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Update Request",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/posts/{post}",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						"{post}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Add Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{csrf-token}}",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/posts",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Delete Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/posts/{post}",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						"{post}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subscribe Index Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/subscribes",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"subscribes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subscribe Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/subscribes",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"subscribes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Role Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/roles",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"roles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Role Show Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/roles/{role}",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"roles",
+						"{role}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Role Add Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/roles",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"roles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Role Update Request",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/roles/{role}",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"roles",
+						"{role}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Role Delete Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/roles/{role}",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"roles",
+						"{role}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Permission Index Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Permission Show Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/permissions/{permission}",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"permissions",
+						"{permission}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Permission Add Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/permissions",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"permissions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Permission Update Request",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "delete_course",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/permissions/{permission}",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"permissions",
+						"{permission}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Permission Delete Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/permissions/{permission}",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"permissions",
+						"{permission}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Course Category Index Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/courses/category",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"courses",
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Course Category Show Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/courses/category/{category}",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"courses",
+						"category",
+						"{category}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Course Category Add Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/courses/category",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"courses",
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Course Category Update Request",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/courses/category/{category}",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"courses",
+						"category",
+						"{category}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Course Category Delete Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/courses/category/{category}",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"courses",
+						"category",
+						"{category}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Courses Index Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Courses Show Index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/courses/{course}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"courses",
+						"{course}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Courses Add Index",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/courses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"courses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Courses Update Request",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/courses/{course}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"courses",
+						"{course}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Courses Delete Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/courses/{course}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"courses",
+						"{course}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Referral Index Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/referrals",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"referrals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Index Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Show Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/users/{user}",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"{user}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Add Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/users/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Update Request",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/users/{user}",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"{user}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Delete Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/users/{user}",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"{user}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Posts Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/users/{user}/posts",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"{user}",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Courses Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/users/{user}/courses",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"{user}",
+						"courses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Referrals Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/users/{user}/referrals",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"{user}",
+						"referrals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dashboard Index Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Dashboard Post Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Dashboard Course Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Dashboard Referral Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Dashboard Subscribe Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/dashboard/subscribes",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"dashboard",
+						"subscribes"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.sendRequest({",
+					"    url: 'http://localhost:8000/sanctum/csrf-cookie',",
+					"    method: 'GET'",
+					"}, function(error, response, {cookies}) {",
+					"    pm.collectionVariables.set('csrf-token', cookies.get('XSRF-TOKEN'));",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "csrf-token",
+			"value": ""
+		}
+	]
+}

@@ -11,15 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('temporary_files', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->string('title');
-            $table->string('slug');
-            $table->text('thumbnail');
-            $table->text('content');
-            $table->string('excerpt');
-            $table->boolean('is_published')->default(false);
+            $table->string('folder');
+            $table->string('file');
             $table->timestamps();
         });
     }
@@ -29,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('temporary_files');
     }
 };

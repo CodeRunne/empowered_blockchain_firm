@@ -5,12 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Referral extends Model
+class Contact extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
-        'user_id',
-        'referrer',
+        'name',
+        'company_name',
+        'company_email',
+        'description'
     ];
 }

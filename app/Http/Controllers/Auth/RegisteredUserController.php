@@ -19,11 +19,14 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): Response
+    public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'fullname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'telegram_username' => ['required', 'string', 'min:6'],
+            'twitter_username' => ['required', 'string', 'min:6'],
+            'facebook_username' => ['required', 'string', 'min:6'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -33,23 +36,33 @@ class RegisteredUserController extends Controller
             if(!$referrer) {
                 return response()->json(['response' => false]);
             }
-                
-            $user = User::create([
-                'username' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-            ]);
+        }
 
+        $user = User::create([
+            'fullname' => $request->fullname,
+            'email' => $request->email,
+            'telegram_username' => $request->telegram_username,
+            'twitter_username' => $request->twitter_username,
+            'facebook_username' => $request->facebook_username,
+            'referral_token' => str()->random(20),
+            'password' => Hash::make($request->password),
+        ]);
+
+        $token = $user->createToken('authtoken')->plainTextToken;
+
+        $user->assignRole('Student');
+
+        if($request->has('referral_token')) {
             Referral::create([
                 'user_id' => $user->id, 
                 'referrer' => $referrer->id
             ]);
         }
 
-        event(new Registered($user));
+        // event(new Registered($user));
 
         Auth::login($user);
 
-        return response()->noContent();
+        return response()->json(["status" => "success", 'token' => $token]);
     }
 }

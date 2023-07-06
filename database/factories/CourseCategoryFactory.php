@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Courses>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\CourseCategory>
  */
-class CoursesFactory extends Factory
+class CourseCategoryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,8 @@ class CoursesFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->unique()->name(),
+            'slug' => str(fake()->unique()->name())->slug()
         ];
     }
 }

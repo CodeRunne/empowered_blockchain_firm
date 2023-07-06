@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rules;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateCoursesRequest extends FormRequest
+class UpdateUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +23,11 @@ class UpdateCoursesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'string', 'max:255'],
-            'slug' => ['required', 'alpha-dash'],
-            'description' => ['required', 'string'],
-            'thumbnail' => ['required', 'file', 'mimes:jpg|jpeg|png', 'max:3072'],
-            'body' => ['required'],
+            'fullname' => ['required', 'string'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'telegram_username' => ['required', 'string', 'min:6'],
+            'twitter_username' => ['required', 'string', 'min:6'],
+            'facebook_username' => ['required', 'string', 'min:6'],
         ];
     }
 }

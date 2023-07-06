@@ -16,8 +16,10 @@ class UserResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "name" => $this->fullname,
+            "fullname" => $this->fullname,
             "email" => $this->email,
+            "role" => $this->roles()->pluck('name')[0] ?? '',
+            "permissions" => PermissionResource::collection($this->whenLoaded('permissions')),
             "posts" => PostResource::collection($this->whenLoaded('posts')),
             "referrals" => ReferralResource::collection($this->whenLoaded('referrals')),
             "courses" => CourseResource::collection($this->whenLoaded('courses'))
